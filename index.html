@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Simple E-commerce</title>
+  </head>
+  <body>
+    <main class="container-xxl">
+      <header class="mt-4">
+        <nav class="d-flex justify-content-between align-items-center">
+          <a href="./index.html" class="fs-2 fw-bold logo">WROLY</a>
+
+          <div class="d-flex gap-3 align-items-center">
+            <button
+              class="d-flex justify-content-center align-items-center position-relative"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#cart_"
+              aria-controls="cart_"
+            >
+              <img src="./img/cart.png" class="cart" alt="cart_" />
+              <span
+                class="position-absolute top-0 start-100 translate-middle bg-danger border border-light rounded-circle"
+                style="padding: 5px"
+                id="dot"
+              >
+                <span class="visually-hidden">New alerts</span>
+              </span>
+            </button>
+
+            <!-- CART SIDEBAR -->
+            <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="cart_"
+              aria-labelledby="cart_Label"
+            >
+              <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="cart_Label">Cart</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <div class="offcanvas-body">
+                <!-- LIST ITEMS -->
+                <ul class="d-grid gap-3" id="cart"></ul>
+              </div>
+
+              <div class="offcanvas-footer p-3 border-top d-grid">
+                <h4 class="normal-font mt-4" id="total"></h4>
+                <button class="btn btn-warning py-3 fw-semibold mt-4">
+                  CHECK OUT
+                </button>
+              </div>
+            </div>
+
+            <button>
+              <img src="./img/main-menu.png" class="cart" alt="menu" />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <div class="row gy-4 gx-4" style="margin-top: 6rem">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/1.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title d-flex" id="title-1">Shadow Timepiece</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱5999</span
+                >
+              </div>
+              <p class="card-text text-secondary desc">
+                A sleek black watch that exudes sophistication.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_1"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/2.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-2">Gilded Timekeeper</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱3700</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                A luxurious timepiece with a gold finish of class.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_2"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/3.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-3">Midnight Gold watch</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱8000</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                A black watch with gold accents that exudes modernity and style.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_3"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/4.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-4">Lunar Chronometer</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱12,000</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                A silver and gold watch that looks like the night sky with its
+                sparkling.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_4"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/5.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-5">Snowy Chronograph</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱4800</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                A clean and simple white watch that's perfect for occasion.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_5"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/6.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-6">Leatherback keeper</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱3400</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                Its leather strap adds a touch of ruggedness to its
+                sophisticated.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_6"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/7.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-7">Mahogany Straps</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱8300</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                Its leather strap and simple design make it perfect for everyday
+                wear.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_7"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card rounded-0">
+            <img src="./img/item/8.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="d-grid align-items-center justify-content-between">
+                <h5 class="card-title" id="title-8">Midnight Leather</h5>
+                <span
+                  class="text-warning fs-5"
+                  id="price"
+                  style="
+                    font-family: 'Courier New', Courier, monospace;
+                    font-weight: 600;
+                  "
+                  >₱9700</span
+                >
+              </div>
+
+              <p class="card-text text-secondary desc">
+                Its leather strap and gold accents make it a standout piece.
+              </p>
+              <div class="d-flex justify-content-center mt-4">
+                <button
+                  class="btn btn-warning py-2 w-100"
+                  id="btn_8"
+                  onclick="addItemToCart()"
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-light border-top w-100 p-3"
+      style="margin-top: 12rem; height: auto"
+    >
+      <h6 class="text-center text-dark">Kodego WD52P</h6>
+      <h6 class="text-center text-dark">
+        E-commerce - Art Alfred Bernales
+        <span class="d-block">April 01, 2023</span>
+      </h6>
+    </footer>
+
+    <!-- BOOSTRAP -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JAVASCRIPT -->
+    <script src="./index.js"></script>
+  </body>
+</html>
