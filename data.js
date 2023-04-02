@@ -1,138 +1,4 @@
-let cartItems = {
-  cartArr: [],
-
-  item_f() {
-    const cart = document.querySelector("#cart");
-    let itemInCart = "";
-    let overAllCost = 0;
-
-    cartItems.cartArr.forEach((item) => {
-      itemInCart += `<li> 
-        <div class="d-flex gap-2 align-items-center justify-content-between">
-            <div>
-                <img
-                    class="cart-img"
-                    src=${item.image}
-                    alt="item-1"
-                />
-            </div>
-
-            <div class="d-flex align-items-center gap-3">
-                <div class="d-grid gap-2">
-                    <h2 class="fs-6 fw-bold">${item.item}</h2>
-                    <p class="fs-6 normal-font text-warning">$ ${item.price}</p>
-                </div>
-            </div>
-
-            <div class=''>
-                <button class="btn btn-danger text-light" onclick={cartItems.deleteItem()}>Delete</button>
-            </div>
-        </div> 
-    </li>`;
-
-      overAllCost += item.price;
-    });
-
-    cart.innerHTML = itemInCart;
-    document.querySelector("#total").innerHTML = `Total: ₱${overAllCost}`;
-
-    const length =
-      cartItems.cartArr.length == 0
-        ? (document.querySelector("#dot").style.display = "none")
-        : (document.querySelector("#dot").style.display = "block");
-  },
-
-  deleteItem(index) {
-    cartItems.cartArr.splice(index, 1);
-    cartItems.item_f();
-  },
-};
-
-cartItems.item_f();
-
-const addItemToCart = (buttonId, titleId, price, image) => {
-  const button = document.querySelector(`#${buttonId}`);
-  const titleEl = document.querySelector(`#${titleId}`);
-
-  if (!button || !titleEl) {
-    return console.log("Add");
-  }
-
-  button.addEventListener("click", () => {
-    const title = titleEl.innerText;
-    cartItems.cartArr.push({ item: title, price: price, image: image });
-    cartItems.item_f();
-  });
-};
-
-addItemToCart();
-
-// BTN 1
-addItemToCart("btn_1", "title-1", 5999, "./img/item/1.png");
-// BTN 2
-addItemToCart("btn_2", "title-2", 3700, "./img/item/2.png");
-// BTN 3
-addItemToCart("btn_3", "title-3", 8000, "./img/item/3.png");
-// BTN 4
-addItemToCart("btn_4", "title-4", 12000, "./img/item/4.png");
-// BTN 5
-addItemToCart("btn_5", "title-5", 4800, "./img/item/5.png");
-// BTN 6
-addItemToCart("btn_6", "title-6", 3400, "./img/item/6.png");
-// BTN 7
-addItemToCart("btn_7", "title-7", 8300, "./img/item/7.png");
-// BTN 8
-addItemToCart("btn_8", "title-8", 9700, "./img/item/8.png");
-
-const updateTotal = () => {
-  let overAllCost = 0;
-
-  cartItems.cartArr.forEach((item) => {
-    overAllCost += item.price;
-  });
-
-  document.querySelector("#total").innerHTML = `Total: ₱${overAllCost}`;
-};
-
-const increment = (id, price) => {
-  const index = cartItems.findItemIndexById(id);
-  cartItems.cartArr[index].quantity = cartItems.cartArr[index].quantity += 1;
-  const quantityElement = document.querySelector(`#quantity-${id}`);
-  quantityElement.textContent = cartItems.cartArr[index].quantity;
-  console.log(
-    (cartItems.cartArr[index].price = price * cartItems.cartArr[index].quantity)
-  );
-
-  const priceElement = document.querySelector(`#priceTotal-${id}`);
-  cartItems.cartArr[index].price = price * cartItems.cartArr[index].quantity;
-  priceElement.textContent = "₱" + cartItems.cartArr[index].price;
-
-  updateTotal();
-};
-
-const decrement = (id, price) => {
-  const index = cartItems.findItemIndexById(id);
-
-  if (cartItems.cartArr[index].quantity > 1) {
-    cartItems.cartArr[index].quantity -= 1;
-
-    const quantityElement = document.querySelector(`#quantity-${id}`);
-    quantityElement.textContent = cartItems.cartArr[index].quantity;
-
-    const priceElement = document.querySelector(`#priceTotal-${id}`);
-    cartItems.cartArr[index].price = price * cartItems.cartArr[index].quantity;
-    priceElement.textContent = "₱" + cartItems.cartArr[index].price;
-
-    updateTotal();
-  } else {
-    cartItems.cartArr.splice(index, 1);
-    cartItems.item_f();
-    updateTotal();
-  }
-};
-
-//
-const itemsArr = [
+const items = [
   {
     id: 1,
     title: "Shadow Timepiece",
@@ -191,8 +57,73 @@ const itemsArr = [
   },
 ];
 
+let totalPrice = 0;
+
+function getItemById(id) {
+  return items.find((item) => item.id === id);
+}
+
 let cartItems = {
   cartArr: [],
+
+  arr: [
+    {
+      id: 1,
+      title: "Shadow Timepiece",
+      price: 5999,
+      description: "A sleek black watch.",
+      img: "./img/item/1.png",
+    },
+    {
+      id: 2,
+      title: "Gilded Timekeeper",
+      price: 8000,
+      description: "A black watch with gold.",
+      img: "./img/item/2.png",
+    },
+    {
+      id: 3,
+      title: "Midnight Gold watch",
+      price: 4000,
+      description: "A black watch with gold.",
+      img: "./img/item/3.png",
+    },
+    {
+      id: 4,
+      title: "Lunar Chronometer",
+      price: 12000,
+      description: "A silver and gold.",
+      img: "./img/item/4.png",
+    },
+    {
+      id: 5,
+      title: "Snowy Chronograph",
+      price: 4800,
+      description: "A clean and simple white watch.",
+      img: "./img/item/5.png",
+    },
+    {
+      id: 6,
+      title: "Leatherback keeper",
+      price: 3400,
+      description: "Its leather strap adds a touch.",
+      img: "./img/item/6.png",
+    },
+    {
+      id: 7,
+      title: "Mahogany Straps",
+      price: 8399,
+      description: "Its leather strap and simple.",
+      img: "./img/item/7.png",
+    },
+    {
+      id: 8,
+      title: "Midnight Leather",
+      price: 5999,
+      description: "Its leather strap and gold.",
+      img: "./img/item/8.png",
+    },
+  ],
 
   item_f() {
     const cart = document.querySelector("#cart");
@@ -253,10 +184,6 @@ let cartItems = {
   },
 };
 
-function find(id) {
-  return itemsArr.find((item) => item.id === id);
-}
-
 const updateTotal = () => {
   let overAllCost = 0;
 
@@ -269,25 +196,32 @@ const updateTotal = () => {
 
 function increment(id, price) {
   const index = cartItems.findItemIndexById(id);
-  const index2 = find(id);
 
   cartItems.cartArr[index].quantity += 1;
-  cartItems.cartArr[index].price += itemsArr[index2].price;
+  cartItems.cartArr[index].price += items.reduce((total, item) => {
+    if (id.includes(item.id)) {
+      return total + item.price;
+    }
+    return total;
+  }, 0);
 
   cartItems.item_f();
   updateTotal();
 }
 
 function decrement(id, price) {
-  const itemIndex = cartItems.findItemIndexById(id);
-  cartItems.cartArr[itemIndex].quantity -= 1;
-  cartItems.cartArr[itemIndex].price -= parseInt(price);
-  if (cartItems.cartArr[itemIndex].quantity <= 0) {
-    cartItems.deleteItem(itemIndex);
-  }
-  if (index !== -1) {
-    cartItems.cartArr[index].quantity += 1;
-    cartItems.cartArr[index].price -= itemsArr[index].price;
+  const index = cartItems.findItemIndexById(id);
+
+  if (cartItems.cartArr[index].quantity > 1) {
+    cartItems.cartArr[index].quantity -= 1;
+    cartItems.cartArr[index].price -= items.reduce((total, item) => {
+      if (id.includes(item.id)) {
+        return total + item.price;
+      }
+      return total;
+    }, 0);
+  } else {
+    cartItems.deleteItem(index);
   }
   cartItems.item_f();
   updateTotal();
@@ -327,7 +261,7 @@ const addToCart = (name, price, img, id) => {
 
 const row = document.querySelector("#row");
 
-itemsArr.map((item) => {
+items.map((item) => {
   const card = `
   <div class="col-6 col-md-4 col-lg-3">
   <div class="card rounded-0">
