@@ -259,7 +259,7 @@ const addToCart = (name, price, img, id) => {
   cartItems.item_f();
 };
 
-const row = document.querySelector("#row");
+const cardChild = document.querySelector("#cardChild");
 
 items.map((item) => {
   const card = `
@@ -269,7 +269,6 @@ items.map((item) => {
     <img src="${item.img}" class="card-img-top" alt="..." />
   </div>
     <div class="card-body p-0 mt-3">
-      
         <h5 class="card-title text-center" id="title-1">${item.title}</h5>
         
       
@@ -298,7 +297,7 @@ items.map((item) => {
 </div>
   `;
 
-  row.innerHTML += card;
+  cardChild.innerHTML += card;
 });
 
 cartItems.item_f();

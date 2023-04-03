@@ -145,6 +145,10 @@ button {
   display: none;
 }
 
+ion-icon {
+  font-size: 1.6rem;
+}
+
 @media (max-width: 1199.98px) {
   .hero {
     height: 30rem;
