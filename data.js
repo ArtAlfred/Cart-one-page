@@ -302,3 +302,16 @@ items.map((item) => {
 });
 
 cartItems.item_f();
+
+// HIDE NAV ONSCROLL
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("header").style.top = "0rem";
+    document.querySelector(".hero").style.marginTop = "3.8rem";
+  } else {
+    document.getElementById("header").style.top = "-9rem";
+  }
+  prevScrollpos = currentScrollPos;
+};

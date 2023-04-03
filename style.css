@@ -47,6 +47,12 @@ button {
   font-size: 16px !important;
 }
 
+#header {
+  z-index: 1000;
+  background: #fff;
+  transition: top 0.3s;
+}
+
 /* NAV */
 .f-sm {
   font-size: 14px;
@@ -87,6 +93,7 @@ button {
 /* HERO */
 .hero {
   height: 38rem;
+  margin-top: 6rem;
 }
 
 .indicators {
@@ -177,6 +184,7 @@ button {
 
   .hero {
     height: 20rem;
+    margin-top: 3rem !important;
   }
 }
 
@@ -268,10 +276,15 @@ button {
   .footer-desc br {
     display: none;
   }
+
+  .hero {
+    margin-top: 1.4rem !important;
+  }
 }
 
 @media (max-width: 360.98px) {
   .hero {
     height: 32rem;
+    margin-top: 3rem !important;
   }
 }
