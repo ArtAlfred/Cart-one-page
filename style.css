@@ -264,6 +264,12 @@ button {
   }
 }
 
+@media (max-width: 390.98px) {
+  .hero {
+    height: 47rem;
+  }
+}
+
 @media (max-width: 375.98px) {
   .footer-title {
     font-size: 20px;
@@ -286,5 +292,11 @@ button {
   .hero {
     height: 34rem;
     margin-top: 3rem !important;
+  }
+}
+
+@media (max-width: 320.98px) {
+  .hero {
+    height: 24rem;
   }
 }
