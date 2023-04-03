@@ -86,11 +86,19 @@ button {
 
 /* HERO */
 .hero {
-  height: 40rem;
-  background-image: url(./img/hero.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 38rem;
+}
+
+.indicators {
+  height: 6px !important;
+  width: 6px !important;
+  border-radius: 50%;
+  border: 2px solid #fff !important;
+  background-color: transparent !important;
+}
+
+.carousel-indicators {
+  margin-right: 5% !important;
 }
 
 /* CART */
@@ -118,9 +126,31 @@ button {
   width: 50%;
 }
 
+.sidebar-menu {
+  width: 50%;
+}
+
+.hero-web {
+  display: block;
+}
+
+.hero-mobile {
+  display: none;
+}
+
+@media (max-width: 1199.98px) {
+  .hero {
+    height: 30rem;
+  }
+}
+
 @media (max-width: 991.98px) {
   .subscribe {
     width: 65%;
+  }
+
+  .hero {
+    height: 25rem;
   }
 }
 
@@ -144,6 +174,10 @@ button {
   .subscribe {
     width: 80%;
   }
+
+  .hero {
+    height: 20rem;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -158,6 +192,28 @@ button {
   .subscribe button {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+
+  .sidebar-menu {
+    width: 75% !important;
+  }
+
+  .hero-web {
+    display: none;
+  }
+
+  .hero-mobile {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero {
+    height: 39rem;
   }
 }
 
@@ -194,6 +250,10 @@ button {
   .card {
     height: 22rem !important;
   }
+
+  .sidebar-menu {
+    width: 90% !important;
+  }
 }
 
 @media (max-width: 375.98px) {
@@ -207,5 +267,11 @@ button {
 
   .footer-desc br {
     display: none;
+  }
+}
+
+@media (max-width: 360.98px) {
+  .hero {
+    height: 32rem;
   }
 }

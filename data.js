@@ -31,14 +31,14 @@ const items = [
     id: 5,
     title: "Snowy Chronograph",
     price: 4800,
-    description: "A clean and simple white watch.",
+    description: "A clean and simple white.",
     img: "./img/item/5.png",
   },
   {
     id: 6,
     title: "Leatherback keeper",
     price: 3400,
-    description: "Its leather strap adds a touch.",
+    description: "Its leather strap adds.",
     img: "./img/item/6.png",
   },
   {

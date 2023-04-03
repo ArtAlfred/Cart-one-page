@@ -38,7 +38,7 @@
   <body>
     <div
       class="bg-dark d-flex align-items-center justify-content-center"
-      style="height: 3rem"
+      style="height: 2rem"
     >
       <h6
         class="text-light text-center f-xsm m-0 normal-font fw-light"
@@ -52,9 +52,72 @@
         class="d-flex justify-content-between align-items-center container-xxl border-bottom position-relative"
         style="height: 6rem"
       >
-        <button class="menu">
+        <button
+          class="menu"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#menu_"
+          aria-controls="menu_"
+        >
           <img src="./img/hamburger.png" class="cart icons" alt="" />
         </button>
+        <!-- CART SIDEBAR -->
+        <div
+          class="offcanvas offcanvas-start sidebar-menu"
+          tabindex="-1"
+          id="menu_"
+          aria-labelledby="menu_Label"
+        >
+          <div class="offcanvas-header">
+            <button
+              type="button"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+              style="background-color: #fff"
+            >
+              <img src="./img/icon/close.png" style="height: 1rem" alt="" />
+            </button>
+          </div>
+
+          <div class="offcanvas-body mt-5 px-4">
+            <ul>
+              <li><a href="">ALL WATCHES</a></li>
+              <hr />
+              <li><a href="">NEW ARRIVALS</a></li>
+              <hr />
+              <li><a href="">BRANDS</a></li>
+              <hr />
+              <li><a href="">SELL & TRADE</a></li>
+              <hr />
+              <li><a href="">OFFERS</a></li>
+              <hr />
+              <li><a href="">WATCH WORLD STUDIOS</a></li>
+              <hr />
+            </ul>
+          </div>
+
+          <div
+            class="offcanvas-footer p-3 border-top d-flex justify-content-center gap-5 border-top"
+          >
+            <a href="" class="w-100 d-flex justify-content-center"
+              ><img
+                src="./img/icon/facebook.png"
+                style="height: 1rem"
+                alt="facebook"
+            /></a>
+            <a href="" class="w-100 d-flex justify-content-center"
+              ><img
+                src="./img/icon/instagram.png"
+                style="height: 1rem"
+                alt="instagram"
+            /></a>
+            <a href="" class="w-100 d-flex justify-content-center"
+              ><img
+                src="./img/icon/youtube.png"
+                style="height: 1rem"
+                alt="youtube"
+            /></a>
+          </div>
+        </div>
         <div class="d-flex gap-3" id="nav--list-item">
           <div class="dropdown">
             <a
@@ -198,40 +261,171 @@
 
     <section class="hero position-relative">
       <div
-        class="container-xxl position-absolute top-50 start-50 translate-middle"
+        id="carouselExampleIndicators"
+        class="carousel slide carousel-fade"
+        data-bs-ride="true"
       >
-        <h1 class="text-center text-light display-3">
-          Discover The <br />
-          Exeptional Watches
-        </h1>
-        <p class="text-center text-light text-opacity-75 mt-4 hero-desc">
-          Every watch is meticulously inspected and prepared by our <br />
-          highyly trained, manufacturer-accredited watchmakers. ensuring
-          <br />only the very best quality.
-        </p>
-        <center class="mt-5">
+        <div class="carousel-indicators d-flex justify-content-end">
           <button
-            class="btn btn-light px-5 rounded-0"
-            style="padding-top: 0.8rem; padding-bottom: 0.8rem"
-          >
-            SHOP NOW
-          </button>
-        </center>
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active indicators"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+            class="indicators"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+            class="indicators"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+            class="indicators"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active hero position-relative">
+            <img
+              src="./img/hero/hero.svg"
+              class="w-100 hero-img hero-web"
+              alt="..."
+            />
+            <img
+              src="./img/hero-mobile/1.png"
+              class="w-100 hero-img hero-mobile"
+              alt="..."
+            />
+            <div
+              class="container-xxl position-absolute top-50 start-50 translate-middle"
+            >
+              <p class="text-center text-light fw-semibold mt-4 hero-desc">
+                Every watch is meticulously inspected and prepared.
+              </p>
+              <h1 class="text-center text-light display-5 mt-3">
+                Discover The Exeptional Watches
+              </h1>
+              <center class="mt-5">
+                <button
+                  class="btn btn-light px-5 rounded-0"
+                  style="padding-top: 0.8rem; padding-bottom: 0.8rem"
+                >
+                  SHOP NOW
+                </button>
+              </center>
+            </div>
+          </div>
+          <div class="carousel-item hero">
+            <img
+              src="./img/hero/1.png"
+              class="w-100 hero-img hero-web"
+              alt="..."
+            />
+            <img
+              src="./img/hero-mobile/2.png"
+              class="w-100 hero-img hero-mobile"
+              alt="..."
+            />
+            <div
+              class="container-xxl position-absolute top-50 start-50 translate-middle"
+            >
+              <p class="text-center text-light fw-semibold mt-4 hero-desc">
+                Buy now to avoid disappointment.
+              </p>
+              <h1 class="text-center text-light display-5 mt-3">
+                Treat Yourself Today
+              </h1>
+              <center class="mt-5">
+                <button
+                  class="btn btn-light px-5 rounded-0"
+                  style="padding-top: 0.8rem; padding-bottom: 0.8rem"
+                >
+                  DON'T MISS OUT
+                </button>
+              </center>
+            </div>
+          </div>
+          <div class="carousel-item hero">
+            <img
+              src="./img/hero/2.png"
+              class="d-block w-100 hero-img hero-web"
+              alt="..."
+            />
+            <img
+              src="./img/hero-mobile/3.png"
+              class="w-100 hero-img hero-mobile"
+              alt="..."
+            />
+            <div
+              class="container-xxl position-absolute top-50 start-50 translate-middle"
+            >
+              <p class="text-center text-light fw-semibold mt-4 hero-desc">
+                Choose the perfect look for you.
+              </p>
+              <h1 class="text-center text-light display-5 mt-3">
+                Uncover Instead Of Access
+              </h1>
+              <center class="mt-5">
+                <button
+                  class="btn btn-light px-5 rounded-0"
+                  style="padding-top: 0.8rem; padding-bottom: 0.8rem"
+                >
+                  EXCLUSIVE
+                </button>
+              </center>
+            </div>
+          </div>
+          <div class="carousel-item hero">
+            <img
+              src="./img/hero/3.png"
+              class="d-block w-100 hero-img hero-web"
+              alt="..."
+            />
+            <img
+              src="./img/hero-mobile/4.png"
+              class="w-100 hero-img hero-mobile"
+              alt="..."
+            />
+            <div
+              class="container-xxl position-absolute top-50 start-50 translate-middle"
+            >
+              <p class="text-center text-light fw-semibold mt-4 hero-desc">
+                Get one today and see instant results.
+              </p>
+              <h1 class="text-center text-light display-5 mt-3">
+                discover Instead Of Learn
+              </h1>
+              <center class="mt-5">
+                <button
+                  class="btn btn-light px-5 rounded-0"
+                  style="padding-top: 0.8rem; padding-bottom: 0.8rem"
+                >
+                  BIGGEST EVER
+                </button>
+              </center>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <main class="container-xxl" style="margin-top: 6rem">
-      <div class="d-grid justify-content-center align-items-center w-100">
-        <h1 class="text-center">NEW ARRIVALS</h1>
-        <center>
-          <p class="text-center mt-4 section-2-desc">
-            Level up your collection from an always-growing assortment of the
-            world's finest timepieces. Featuring classics and independent brands
-            like Rolex, F.P. Journe, Patek Philippe, H. Moser & Cie. and more.
-          </p>
-        </center>
+      <div class="">
+        <h1 class="text-start">Elegance for any <br />occasion.</h1>
       </div>
-      <div class="row gy-4 gx-4" style="margin-top: 6rem" id="row">
+      <div class="row gy-4 gx-4" style="margin-top: 4rem" id="row">
         <!-- CARD -->
       </div>
 
